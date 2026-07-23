@@ -2,11 +2,22 @@
 export const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'Jobs', href: '/jobs' },
-  { label: 'Training', href: '/training' },
-  { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Trainings', href: '/training' },
+  { label: 'Hire Proctors', href: '/proctors/submit-job' },
+  { label: 'Mystery Shopper', href: '/mystery-shopper' },
+  { label: 'Talent Pool', href: '/talent-pool' },
+  { label: 'About Us', href: '/about' },
 ];
+
+export const COMPANY_DETAILS = {
+  name: 'Careers Pro Serve',
+  email: 'careersproserve@gmail.com',
+  phone: '+923216714725',
+  whatsapp: '923216714725',
+  bankName: 'Meezan Bank',
+  accountTitle: 'Careers Pro Serve',
+  accountNumber: 'PK92MEZN00010982347101',
+};
 
 export const DASHBOARD_NAV_ITEMS = [
   { label: 'Dashboard', href: '/dashboard', icon: 'LayoutGrid' },

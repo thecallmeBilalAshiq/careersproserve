@@ -1,231 +1,415 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { JobCard } from '@/components/common/JobCard';
-import AnimatedBackground from '@/components/3d/AnimatedBackground';
-import { mockJobs, mockTraining, mockTestimonials } from '@/lib/mockData';
-import { Briefcase, BookOpen, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { ApplyJobModal } from '@/components/common/ApplyJobModal';
+import { mockJobs } from '@/lib/mockData';
+import { COMPANY_DETAILS } from '@/lib/constants';
+import {
+  Briefcase,
+  BookOpen,
+  ShieldCheck,
+  Eye,
+  UserCheck,
+  Sparkles,
+  ArrowRight,
+  CheckCircle2,
+  ChevronRight,
+  Lock,
+  MessageSquare,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const featuredJobs = mockJobs.filter(job => job.featured).slice(0, 3);
+  const [selectedJob, setSelectedJob] = useState<any | null>(null);
+  const featuredJobs = mockJobs.slice(0, 4);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-500 selection:text-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 px-4 overflow-hidden">
-        <AnimatedBackground />
-        <div className="max-w-6xl mx-auto relative z-10">
+      <section className="relative py-20 lg:py-32 px-4 border-b border-slate-200 overflow-hidden bg-gradient-to-b from-blue-50/60 via-white to-slate-50">
+        {/* Floating Subtle Ambient Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-400/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-purple-400/10 blur-[140px] rounded-full pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto relative z-10 space-y-8 text-center">
+          {/* Top Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-blue-200 rounded-full text-blue-700 text-xs font-bold shadow-md"
+          >
+            <Sparkles size={14} className="text-blue-600 animate-spin" />
+            <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">
+              Careers Pro Serve Platform &bull; Next-Gen Job & Audit Ecosystem
+            </span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+          </motion.div>
+
+          {/* Main Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 leading-[1.15]"
+          >
+            Empowering Careers. <br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Verified Hiring & Corporate Audits.
+            </span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal"
+          >
+            The all-in-one corporate platform for candidate job applications, professional training programs, certified proctor hiring, and mystery shopper audits — with zero login friction.
+          </motion.p>
+
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-wrap gap-4 justify-center items-center pt-4"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 text-balance">
-              Your Next Career Opportunity Awaits
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-balance">
-              Discover thousands of job listings, enroll in professional training programs, and advance your career with CareerHub Pro.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/jobs"
-                className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-              >
-                Explore Jobs
-                <ArrowRight size={20} />
-              </Link>
-              <Link
-                href="/training"
-                className="px-8 py-4 border border-border rounded-lg font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2"
-              >
-                View Training
-                <BookOpen size={20} />
-              </Link>
-            </div>
+            <Link
+              href="/jobs"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-xl text-sm transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-2"
+            >
+              <Briefcase size={18} /> Explore Jobs (Upload CV)
+              <ArrowRight size={18} />
+            </Link>
+
+            <Link
+              href="/mystery-shopper"
+              className="px-8 py-4 bg-white hover:bg-slate-100 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 hover:border-emerald-500 transition-all flex items-center gap-2 shadow-md"
+            >
+              <Eye size={18} className="text-emerald-600" /> Hire Mystery Shopper Team
+            </Link>
+          </motion.div>
+
+          {/* Micro Trust Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-slate-200"
+          >
+            {[
+              { number: '100%', label: 'No Login Friction' },
+              { number: '24/7', label: 'Cloudinary CV Storage' },
+              { number: 'Certified', label: 'Proctor Job Approval' },
+              { number: 'Nationwide', label: 'Mystery Shopper Squads' },
+            ].map((stat, idx) => (
+              <div key={idx} className="space-y-1">
+                <p className="text-xl sm:text-2xl font-black text-blue-600">{stat.number}</p>
+                <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">{stat.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 px-4 bg-secondary/50">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          {[
-            { number: '5,000+', label: 'Active Jobs' },
-            { number: '1,200+', label: 'Training Courses' },
-            { number: '50,000+', label: 'Active Users' },
-            { number: '98%', label: 'Satisfaction Rate' },
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+      {/* Live Market Stats Ticker */}
+      <section className="py-4 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-4 text-xs text-slate-600">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-bold text-slate-900">Live Platform Status:</span> All 7 Executive Modules Active
+          </div>
+          <div className="flex flex-wrap items-center gap-6 font-mono text-slate-500">
+            <span>Official Email: <strong className="text-blue-600">{COMPANY_DETAILS.email}</strong></span>
+            <span>WhatsApp Support: <strong className="text-emerald-600">{COMPANY_DETAILS.whatsappDisplay}</strong></span>
+          </div>
+        </div>
+      </section>
+
+      {/* Core 7 Service Modules Grid */}
+      <section className="py-20 px-4 max-w-7xl mx-auto w-full space-y-12">
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <span className="px-3.5 py-1.5 bg-blue-100 border border-blue-200 rounded-full text-blue-700 text-xs font-extrabold uppercase tracking-widest">
+            Full-Stack Services
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900">
+            7 Executive Modules Built For High Velocity
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600">
+            From guest job applications to certified proctor requests and corporate audits — Careers Pro Serve delivers seamless execution.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Card 1: Jobs & CV */}
+          <div className="group bg-white border border-slate-200 hover:border-blue-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+              <Briefcase size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">1. Guest Job Applications</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              Browse curated jobs across IT, Healthcare, Engineering & Finance. Upload CV resumes directly via Cloudinary without registering an account.
+            </p>
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 group-hover:translate-x-1 transition-all"
             >
-              <p className="text-4xl font-bold text-primary mb-2">{stat.number}</p>
-              <p className="text-muted-foreground">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured Jobs */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Featured Jobs</h2>
-            <Link href="/jobs" className="text-primary hover:underline font-medium flex items-center gap-2">
-              View All <ArrowRight size={20} />
+              Browse Jobs & Apply <ChevronRight size={16} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredJobs.map((job, index) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <JobCard job={job} featured={true} />
-              </motion.div>
-            ))}
+          {/* Card 2: Training */}
+          <div className="group bg-white border border-slate-200 hover:border-purple-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-purple-50 border border-purple-200 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+              <BookOpen size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">2. Corporate & Individual Training</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              Enroll in professional certification programs for Individuals or Corporate Teams. Choose from multiple high-demand topics.
+            </p>
+            <Link
+              href="/training"
+              className="inline-flex items-center gap-2 text-xs font-bold text-purple-600 hover:text-purple-700 group-hover:translate-x-1 transition-all"
+            >
+              Explore Courses <ChevronRight size={16} />
+            </Link>
+          </div>
+
+          {/* Card 3: Proctor Submissions */}
+          <div className="group bg-white border border-slate-200 hover:border-emerald-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
+              <ShieldCheck size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">3. Proctor Hiring & Outsourcing</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              Single and Team Hiring (Outsourcing & Kickstart). Submit proctor requirements or candidate postings for instant Admin verification.
+            </p>
+            <Link
+              href="/proctors/submit-job"
+              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 hover:text-emerald-700 group-hover:translate-x-1 transition-all"
+            >
+              Submit Proctor Job <ChevronRight size={16} />
+            </Link>
+          </div>
+
+          {/* Card 4: Mystery Shoppers */}
+          <div className="group bg-white border border-slate-200 hover:border-amber-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center text-amber-600 mb-6 group-hover:scale-110 transition-transform">
+              <Eye size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">4. Mystery Shopper Squads</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              CEOs and business owners can deploy certified mystery shoppers for 3-5, 5-7, 7-10, or 15-20 outstation audit visits.
+            </p>
+            <Link
+              href="/mystery-shopper"
+              className="inline-flex items-center gap-2 text-xs font-bold text-amber-600 hover:text-amber-700 group-hover:translate-x-1 transition-all"
+            >
+              Request Audit Squad <ChevronRight size={16} />
+            </Link>
+          </div>
+
+          {/* Card 5: Talent Pool */}
+          <div className="group bg-white border border-slate-200 hover:border-blue-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+              <UserCheck size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">5. Executive Talent Vault</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              Register your executive candidate profile for long-term database storage. Corporate clients query our pool for executive headhunting.
+            </p>
+            <Link
+              href="/talent-pool"
+              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 group-hover:translate-x-1 transition-all"
+            >
+              Join Talent Vault <ChevronRight size={16} />
+            </Link>
+          </div>
+
+          {/* Card 6: Admin Dashboard */}
+          <div className="group bg-white border border-slate-200 hover:border-pink-500/60 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-pink-50 border border-pink-200 rounded-2xl flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 transition-transform">
+              <Lock size={28} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">6. Master Admin Portal</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-6">
+              Unified administrative control panel to manage applications, verify candidates, approve proctor jobs, and review mystery shopper leads.
+            </p>
+            <Link
+              href="/admin"
+              className="inline-flex items-center gap-2 text-xs font-bold text-pink-600 hover:text-pink-700 group-hover:translate-x-1 transition-all"
+            >
+              Open Admin Portal <ChevronRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Training Section */}
-      <section className="py-16 px-4 bg-secondary/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Popular Training Programs</h2>
-            <Link href="/training" className="text-primary hover:underline font-medium flex items-center gap-2">
-              View All <ArrowRight size={20} />
+      {/* Featured Jobs Interactive Showcase */}
+      <section className="py-20 px-4 bg-white border-y border-slate-200">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-1">Immediate Hiring</span>
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900">Featured Opportunities</h2>
+            </div>
+            <Link
+              href="/jobs"
+              className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-blue-700 font-bold rounded-xl text-xs border border-slate-300 transition-all flex items-center gap-2"
+            >
+              View All Jobs <ArrowRight size={16} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {mockTraining.slice(0, 3).map((training, index) => (
-              <motion.div
-                key={training.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-lg border border-border bg-card p-6 hover:shadow-lg transition-all"
-              >
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <BookOpen className="text-primary" size={24} />
-                  </div>
-                  <div>
-                    <span className="inline-block px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded">
-                      {training.level}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredJobs.map((job) => (
+              <div key={job.id} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:border-blue-500/50 transition-all shadow-sm hover:shadow-md">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-start">
+                    <span className="px-2.5 py-1 bg-blue-100 border border-blue-200 text-blue-700 text-[10px] font-bold rounded-full">
+                      {job.category}
                     </span>
+                    <span className="text-[10px] text-slate-500 font-mono">{job.type}</span>
                   </div>
+                  <h3 className="font-bold text-slate-900 text-base leading-snug">{job.title}</h3>
+                  <p className="text-xs text-slate-600">{job.company} &bull; {job.location}</p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{training.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">By {training.instructor}</p>
-                <div className="flex justify-between items-center">
+
+                <div className="pt-6 border-t border-slate-200 mt-6 flex justify-between items-center">
+                  <p className="text-xs font-bold text-slate-700">
+                    Verified Job
+                  </p>
+                  <button
+                    onClick={() => setSelectedJob(job)}
+                    className="px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm"
+                  >
+                    Apply CV
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Corporate Mystery Shopper Spotlight */}
+      <section className="py-20 px-4 max-w-7xl mx-auto w-full">
+        <div className="bg-gradient-to-r from-blue-50 via-indigo-50/50 to-purple-50 border border-blue-200 rounded-3xl p-8 sm:p-14 relative overflow-hidden shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6">
+              <span className="px-3.5 py-1.5 bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-extrabold rounded-full uppercase tracking-wider">
+                VIP Corporate Audits
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                Hire Certified Mystery Shopper Teams
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Are you a CEO, Business Owner, or Retail Executive? Deploy mystery evaluation squads across your branch locations for 3-5, 5-7, 7-10, or 15-20 outstation audit visits.
+              </p>
+
+              <div className="space-y-3">
+                {[
+                  'Certified Field Audit Specialists',
+                  'Comprehensive 50-Point Evaluation Reports',
+                  'Staff Integrity & Cashier Compliance Checks',
+                  'Direct Executive Director Consultation',
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-800 font-medium">
+                    <CheckCircle2 size={18} className="text-emerald-600 flex-shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4">
+                <Link
+                  href="/mystery-shopper"
+                  className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition-all shadow-lg inline-flex items-center gap-2"
+                >
+                  <Eye size={18} /> Request Mystery Audit Squad
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-black">
+                    MS
+                  </div>
                   <div>
-                    <p className="text-lg font-bold text-primary">${training.price}</p>
-                    <p className="text-xs text-muted-foreground">{training.duration} hours</p>
+                    <h4 className="text-sm font-bold text-slate-900">Executive Audit Overview</h4>
+                    <p className="text-xs text-slate-500">Careers Pro Serve Operations</p>
                   </div>
-                  <div className="text-yellow-500">★ {training.rating}</div>
                 </div>
-              </motion.div>
-            ))}
+                <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full">
+                  Active Service
+                </span>
+              </div>
+
+              <div className="space-y-4 text-xs text-slate-700">
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-slate-500">Evaluation Scope:</span>
+                  <span className="font-bold text-slate-900">3-5, 5-7, 7-10, 15-20 Visits</span>
+                </div>
+                <div className="flex justify-between py-2 border-b border-slate-100">
+                  <span className="text-slate-500">Turnaround Time:</span>
+                  <span className="font-bold text-slate-900">Detailed Report within 48 Hours</span>
+                </div>
+                <div className="flex justify-between py-2">
+                  <span className="text-slate-500">Official Contact:</span>
+                  <span className="font-bold text-blue-600">{COMPANY_DETAILS.whatsappDisplay}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Why Choose CareerHub?</h2>
+      {/* Contact & WhatsApp Floating CTA Banner */}
+      <section className="py-16 px-4 bg-white border-t border-slate-200">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-black text-slate-900">Have Questions or Custom Demands?</h2>
+          <p className="text-slate-600 text-sm max-w-xl mx-auto">
+            Contact our executive team via official email <strong className="text-blue-600">{COMPANY_DETAILS.email}</strong> or get an immediate response on WhatsApp.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Briefcase size={32} />,
-                title: 'Job Listings',
-                description: 'Access thousands of curated job listings from top companies.',
-              },
-              {
-                icon: <BookOpen size={32} />,
-                title: 'Professional Training',
-                description: 'Learn from industry experts with comprehensive courses.',
-              },
-              {
-                icon: <TrendingUp size={32} />,
-                title: 'Career Growth',
-                description: 'Track your progress and advance your professional skills.',
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-lg border border-border bg-card p-8 text-center hover:shadow-lg transition-all"
-              >
-                <div className="text-primary mb-4 flex justify-center">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <a
+              href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=Hello%20Careers%20Pro%20Serve`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition-all shadow-lg flex items-center gap-2"
+            >
+              <MessageSquare size={18} /> Chat on WhatsApp ({COMPANY_DETAILS.whatsappDisplay})
+            </a>
+            <a
+              href={`mailto:${COMPANY_DETAILS.email}`}
+              className="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-sm border border-slate-300 transition-all flex items-center gap-2"
+            >
+              Email Us Directly
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-4 bg-secondary/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">What Our Users Say</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {mockTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-lg border border-border bg-card p-6"
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <span key={i} className="text-yellow-500">★</span>
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4">&quot;{testimonial.content}&quot;</p>
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20 p-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ready to Advance Your Career?</h2>
-          <p className="text-muted-foreground mb-8 text-lg">Start exploring opportunities today and take control of your professional future.</p>
-          <Link
-            href="/register"
-            className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
-          >
-            Get Started Free <ArrowRight size={20} />
-          </Link>
-        </div>
-      </section>
+      {/* Apply Modal */}
+      {selectedJob && (
+        <ApplyJobModal
+          jobId={selectedJob.id}
+          jobTitle={selectedJob.title}
+          company={selectedJob.company}
+          isOpen={!!selectedJob}
+          onClose={() => setSelectedJob(null)}
+        />
+      )}
 
       <Footer />
     </div>

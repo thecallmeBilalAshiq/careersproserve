@@ -2,8 +2,6 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
-@custom-variant dark (&:is(.dark *));
-
 @font-face {
   font-family: 'Inter';
   src: url('https://rsms.me/inter/inter.css');
@@ -55,110 +53,38 @@
 
 :root {
   color-scheme: light;
-  --background: #fafaf9;
-  --foreground: #1a1a19;
+  --background: #f8fafc;
+  --foreground: #0f172a;
   --card: #ffffff;
-  --card-foreground: #1a1a19;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #1a1a19;
-  --primary: #0066cc;
+  --popover-foreground: #0f172a;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
-  --secondary: #f3f3f2;
-  --secondary-foreground: #1a1a19;
-  --muted: #e7e5e4;
-  --muted-foreground: #78716f;
-  --accent: #0066cc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #2563eb;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --border: #e7e5e4;
-  --input: #e7e5e4;
-  --ring: #0066cc;
-  --chart-1: #0066cc;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+  --chart-1: #2563eb;
   --chart-2: #7c3aed;
   --chart-3: #f97316;
   --chart-4: #ec4899;
   --chart-5: #06b6d4;
-  --radius: 0.5rem;
-  --sidebar: #fafaf9;
-  --sidebar-foreground: #1a1a19;
-  --sidebar-primary: #0066cc;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #2563eb;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f3f2;
-  --sidebar-accent-foreground: #0066cc;
-  --sidebar-border: #e7e5e4;
-  --sidebar-ring: #0066cc;
-}
-
-.dark {
-  color-scheme: dark;
-  --background: #0f0f0f;
-  --foreground: #fafaf9;
-  --card: #1a1a19;
-  --card-foreground: #fafaf9;
-  --popover: #1a1a19;
-  --popover-foreground: #fafaf9;
-  --primary: #3b82f6;
-  --primary-foreground: #0f0f0f;
-  --secondary: #27272a;
-  --secondary-foreground: #fafaf9;
-  --muted: #404040;
-  --muted-foreground: #a8a29e;
-  --accent: #3b82f6;
-  --accent-foreground: #fafaf9;
-  --destructive: #f87171;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #3b82f6;
-  --chart-1: #3b82f6;
-  --chart-2: #a855f7;
-  --chart-3: #fb923c;
-  --chart-4: #ec4899;
-  --chart-5: #06b6d4;
-  --sidebar: #1a1a19;
-  --sidebar-foreground: #fafaf9;
-  --sidebar-primary: #3b82f6;
-  --sidebar-primary-foreground: #0f0f0f;
-  --sidebar-accent: #27272a;
-  --sidebar-accent-foreground: #3b82f6;
-  --sidebar-border: #27272a;
-  --sidebar-ring: #3b82f6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    color-scheme: dark;
-    --background: #0f0f0f;
-    --foreground: #fafaf9;
-    --card: #1a1a19;
-    --card-foreground: #fafaf9;
-    --popover: #1a1a19;
-    --popover-foreground: #fafaf9;
-    --primary: #3b82f6;
-    --primary-foreground: #0f0f0f;
-    --secondary: #27272a;
-    --secondary-foreground: #fafaf9;
-    --muted: #404040;
-    --muted-foreground: #a8a29e;
-    --accent: #3b82f6;
-    --accent-foreground: #fafaf9;
-    --destructive: #f87171;
-    --border: #27272a;
-    --input: #27272a;
-    --ring: #3b82f6;
-    --chart-1: #3b82f6;
-    --chart-2: #a855f7;
-    --chart-3: #fb923c;
-    --chart-4: #ec4899;
-    --chart-5: #06b6d4;
-    --sidebar: #1a1a19;
-    --sidebar-foreground: #fafaf9;
-    --sidebar-primary: #3b82f6;
-    --sidebar-primary-foreground: #0f0f0f;
-    --sidebar-accent: #27272a;
-    --sidebar-accent-foreground: #3b82f6;
-    --sidebar-border: #27272a;
-    --sidebar-ring: #3b82f6;
-  }
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #2563eb;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #2563eb;
 }
 
 @layer base {
@@ -166,36 +92,21 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply bg-background;
+    @apply bg-background text-foreground;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-  }
-  h2 {
-    @apply text-3xl md:text-4xl;
-  }
-  h3 {
-    @apply text-2xl md:text-3xl;
-  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .glass-light {
+    @apply bg-white/80 backdrop-blur-lg border border-slate-200/80 shadow-lg shadow-slate-200/50;
   }
-  .text-pretty {
-    text-wrap: pretty;
-  }
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-  .glass-dark {
-    @apply dark:bg-black/10 dark:backdrop-blur-md dark:border dark:border-white/10;
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
   }
 }

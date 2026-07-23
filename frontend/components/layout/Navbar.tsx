@@ -15,25 +15,29 @@ export function Navbar() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg" />
-            <span>Sapphire Hub</span>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+            <div className="w-9 h-9 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-black text-xs shadow-md">
+              CPS
+            </div>
+            <span className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent font-black">
+              Careers Pro Serve
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-semibold transition-colors ${
                   isActive(item.href)
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? 'text-blue-600 font-bold border-b-2 border-blue-600 py-1'
+                    : 'text-slate-600 hover:text-blue-600'
                 }`}
               >
                 {item.label}
@@ -41,51 +45,26 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Auth / Admin Buttons */}
+          <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/sapphire"
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              href="/portfolio"
+              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors px-3 py-1.5"
             >
-              Sapphire Portfolio
+              Showcase
             </Link>
-            {isAuthenticated && user ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={logout}
-                  className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/register"
-                  className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Sign Up
-                </Link>
-              </>
-            )}
+            <Link
+              href="/admin/login"
+              className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-sm font-bold shadow-sm transition-all"
+            >
+              Admin Portal
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-slate-700 hover:text-blue-600"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -93,66 +72,29 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-border">
-            <Link
-              href="/sapphire"
-              className="block px-4 py-2 text-sm font-medium text-primary hover:bg-muted transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Sapphire Portfolio
-            </Link>
+          <div className="md:hidden pb-4 border-t border-slate-200 bg-white">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block px-4 py-2 text-sm font-medium transition-colors ${
+                className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'text-primary bg-accent'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? 'text-blue-600 font-bold bg-blue-50'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <div className="border-t border-border mt-4 pt-4 px-4 space-y-2">
-              {isAuthenticated && user ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className="block px-4 py-2 text-sm font-medium text-center bg-primary text-primary-foreground rounded-lg"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-                  <button
-                    onClick={() => {
-                      logout();
-                      setIsOpen(false);
-                    }}
-                    className="w-full px-4 py-2 text-sm font-medium text-center border border-border rounded-lg hover:bg-muted"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    className="block px-4 py-2 text-sm font-medium text-center border border-border rounded-lg"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/register"
-                    className="block px-4 py-2 text-sm font-medium text-center bg-primary text-primary-foreground rounded-lg"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              )}
+            <div className="border-t border-slate-200 mt-2 pt-3 px-4 space-y-2">
+              <Link
+                href="/admin/login"
+                className="block px-4 py-2 text-sm font-bold text-center bg-slate-900 text-white rounded-xl"
+                onClick={() => setIsOpen(false)}
+              >
+                Admin Portal
+              </Link>
             </div>
           </div>
         )}

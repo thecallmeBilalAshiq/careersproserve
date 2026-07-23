@@ -1,15 +1,17 @@
 'use client';
 
-import { use } from 'react';
+import { use, useState } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ApplyJobModal } from '@/components/common/ApplyJobModal';
 import { mockJobs } from '@/lib/mockData';
 import { MapPin, Briefcase, DollarSign, BookmarkPlus, Share2, ArrowRight } from 'lucide-react';
 
 export default function JobDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const job = mockJobs.find(j => j.id === id);
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
 
   if (!job) {
     return (
@@ -124,8 +126,11 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="bg-card border border-border rounded-lg p-8 sticky top-24">
-                <button className="w-full px-6 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors mb-3 flex items-center justify-center gap-2">
-                  Apply Now <ArrowRight size={18} />
+                <button 
+                  onClick={() => setIsApplyOpen(true)}
+                  className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 rounded-xl font-extrabold transition-all mb-3 flex items-center justify-center gap-2 shadow-lg"
+                >
+                  Apply Now (Upload CV) <ArrowRight size={18} />
                 </button>
                 <button className="w-full px-6 py-3 border border-border rounded-lg font-semibold text-foreground hover:bg-muted transition-colors">
                   Save Job
@@ -181,6 +186,14 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
           </div>
         </div>
       </div>
+
+      <ApplyJobModal
+        jobId={job.id}
+        jobTitle={job.title}
+        company={job.company}
+        isOpen={isApplyOpen}
+        onClose={() => setIsApplyOpen(false)}
+      />
 
       <Footer />
     </div>
