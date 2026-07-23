@@ -55,7 +55,7 @@ export function Navbar() {
             </Link>
             <Link
               href="/admin/login"
-              className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-sm font-bold shadow-sm transition-all"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-md transition-all"
             >
               Admin Portal
             </Link>
@@ -90,7 +90,7 @@ export function Navbar() {
             <div className="border-t border-slate-200 mt-2 pt-3 px-4 space-y-2">
               <Link
                 href="/admin/login"
-                className="block px-4 py-2 text-sm font-bold text-center bg-slate-900 text-white rounded-xl"
+                className="block px-4 py-2 text-sm font-bold text-center bg-blue-600 text-white rounded-xl"
                 onClick={() => setIsOpen(false)}
               >
                 Admin Portal

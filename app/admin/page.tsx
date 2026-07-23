@@ -6,21 +6,15 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { createClient } from '@/lib/supabase/client';
 import {
-  Briefcase,
   BookOpen,
-  Users,
   ShieldCheck,
   Eye,
   FileText,
   Check,
-  X,
   ExternalLink,
   Download,
-  Search,
   MessageSquare,
   Sparkles,
-  Building,
-  DollarSign,
   UserCheck
 } from 'lucide-react';
 
@@ -82,20 +76,20 @@ export default function AdminDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
       <Navbar />
 
-      <div className="bg-slate-900 border-b border-slate-800 py-6 px-4">
+      <div className="bg-white border-b border-slate-200 py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-xs font-semibold mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 border border-blue-200 rounded-full text-blue-800 text-xs font-bold mb-2">
               <Sparkles size={14} /> Master Admin Portal
             </div>
-            <h1 className="text-2xl md:text-3xl font-black text-white">Careers Pro Serve Management Dashboard</h1>
-            <p className="text-xs text-slate-400">Oversee Applications, Enrollments, Proctor Approvals, Mystery Shoppers & Talent Pool</p>
+            <h1 className="text-2xl md:text-3xl font-black text-slate-900">Careers Pro Serve Management Dashboard</h1>
+            <p className="text-xs text-slate-600">Oversee Applications, Enrollments, Proctor Approvals, Mystery Shoppers & Talent Pool</p>
           </div>
 
-          <Link href="/" className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-xl border border-slate-700">
+          <Link href="/" className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl border border-slate-300">
             View Live Site
           </Link>
         </div>
@@ -103,7 +97,7 @@ export default function AdminDashboardPage() {
 
       <main className="flex-1 py-8 px-4 max-w-7xl mx-auto w-full space-y-6">
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
+        <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
           {[
             { id: 'applications', label: 'Job Applications', icon: FileText, count: applications.length },
             { id: 'enrollments', label: 'Training Enrollments', icon: BookOpen, count: enrollments.length },
@@ -119,12 +113,12 @@ export default function AdminDashboardPage() {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
                   isActive
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-lg'
-                    : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200'
                 }`}
               >
                 <Icon size={16} /> {tab.label}
-                <span className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] ${isActive ? 'bg-slate-950 text-cyan-400' : 'bg-slate-800 text-slate-300'}`}>
+                <span className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] ${isActive ? 'bg-white text-blue-700 font-extrabold' : 'bg-slate-100 text-slate-700'}`}>
                   {tab.count}
                 </span>
               </button>
@@ -135,11 +129,11 @@ export default function AdminDashboardPage() {
         {/* Tab 1: Job Applications */}
         {activeTab === 'applications' && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-cyan-400">Guest Job Applications ({applications.length})</h2>
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <h2 className="text-lg font-bold text-blue-700">Guest Job Applications ({applications.length})</h2>
+            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+                  <thead className="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
                     <tr>
                       <th className="p-4">Candidate Name</th>
                       <th className="p-4">Contact Info</th>
@@ -148,26 +142,26 @@ export default function AdminDashboardPage() {
                       <th className="p-4">Submitted</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800">
+                  <tbody className="divide-y divide-slate-100">
                     {applications.map((app) => (
-                      <tr key={app.id} className="hover:bg-slate-800/50">
-                        <td className="p-4 font-bold text-white">{app.full_name || app.fullName}</td>
+                      <tr key={app.id} className="hover:bg-slate-50">
+                        <td className="p-4 font-bold text-slate-900">{app.full_name || app.fullName}</td>
                         <td className="p-4 space-y-1">
-                          <p className="text-slate-300">{app.email}</p>
-                          <p className="text-slate-400 font-mono text-[11px]">{app.phone}</p>
+                          <p className="text-slate-700">{app.email}</p>
+                          <p className="text-slate-500 font-mono text-[11px]">{app.phone}</p>
                         </td>
-                        <td className="p-4 text-slate-300">{app.city}, {app.country}</td>
+                        <td className="p-4 text-slate-700">{app.city}, {app.country}</td>
                         <td className="p-4">
                           <a
                             href={app.cv_url || app.cvUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-lg font-semibold hover:bg-cyan-500/20"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg font-semibold hover:bg-blue-100"
                           >
                             <Download size={14} /> Download CV
                           </a>
                         </td>
-                        <td className="p-4 text-slate-400">{new Date(app.created_at || Date.now()).toLocaleDateString()}</td>
+                        <td className="p-4 text-slate-500">{new Date(app.created_at || Date.now()).toLocaleDateString()}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -180,11 +174,11 @@ export default function AdminDashboardPage() {
         {/* Tab 2: Training Enrollments */}
         {activeTab === 'enrollments' && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-purple-400">Training Enrollments & Payment Proofs ({enrollments.length})</h2>
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <h2 className="text-lg font-bold text-purple-700">Training Enrollments ({enrollments.length})</h2>
+            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+                  <thead className="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
                     <tr>
                       <th className="p-4">Student</th>
                       <th className="p-4">Contact</th>
@@ -194,28 +188,28 @@ export default function AdminDashboardPage() {
                       <th className="p-4 text-right">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800">
+                  <tbody className="divide-y divide-slate-100">
                     {enrollments.map((enr) => (
-                      <tr key={enr.id} className="hover:bg-slate-800/50">
-                        <td className="p-4 font-bold text-white">{enr.client_name || enr.clientName}</td>
+                      <tr key={enr.id} className="hover:bg-slate-50">
+                        <td className="p-4 font-bold text-slate-900">{enr.client_name || enr.clientName}</td>
                         <td className="p-4 space-y-1">
-                          <p className="text-slate-300">{enr.client_email || enr.clientEmail}</p>
-                          <p className="text-slate-400 font-mono text-[11px]">{enr.client_phone || enr.clientPhone}</p>
+                          <p className="text-slate-700">{enr.client_email || enr.clientEmail}</p>
+                          <p className="text-slate-500 font-mono text-[11px]">{enr.client_phone || enr.clientPhone}</p>
                         </td>
-                        <td className="p-4 font-bold text-purple-400">${enr.fee_amount || enr.feeAmount || 150}</td>
+                        <td className="p-4 font-bold text-purple-700">${enr.fee_amount || enr.feeAmount || 150}</td>
                         <td className="p-4">
                           <a
                             href={enr.payment_screenshot_url || enr.screenshotUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 text-purple-400 rounded-lg font-semibold hover:bg-purple-500/20"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-50 border border-purple-200 text-purple-700 rounded-lg font-semibold hover:bg-purple-100"
                           >
                             <ExternalLink size={14} /> View Receipt Image
                           </a>
                         </td>
                         <td className="p-4">
                           <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
-                            enr.status === 'verified' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                            enr.status === 'verified' ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-amber-100 text-amber-800 border border-amber-200'
                           }`}>
                             {enr.status || 'pending_verification'}
                           </span>
@@ -224,7 +218,7 @@ export default function AdminDashboardPage() {
                           {enr.status !== 'verified' && (
                             <button
                               onClick={() => handleVerifyEnrollment(enr.id)}
-                              className="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-lg"
+                              className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg"
                             >
                               Approve Fee
                             </button>
@@ -242,34 +236,34 @@ export default function AdminDashboardPage() {
         {/* Tab 3: Proctor Job Requests */}
         {activeTab === 'proctors' && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-cyan-400">Proctor Job Approval Requests ({proctorRequests.length})</h2>
+            <h2 className="text-lg font-bold text-blue-700">Proctor Job Approval Requests ({proctorRequests.length})</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {proctorRequests.map((req) => (
-                <div key={req.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+                <div key={req.id} className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-lg">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-base font-bold text-white">{req.job_title || req.jobTitle}</h3>
-                      <p className="text-xs text-cyan-400 font-semibold">{req.company_name || req.companyName} &bull; {req.location}</p>
+                      <h3 className="text-base font-bold text-slate-900">{req.job_title || req.jobTitle}</h3>
+                      <p className="text-xs text-blue-700 font-bold">{req.company_name || req.companyName} &bull; {req.location}</p>
                     </div>
                     <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
-                      req.status === 'approved' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'
+                      req.status === 'approved' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
                     }`}>
                       {req.status}
                     </span>
                   </div>
 
-                  <div className="bg-slate-950 p-3 rounded-xl space-y-1 text-xs text-slate-300">
-                    <p><span className="text-slate-500">Submitted By Proctor:</span> {req.proctor_name || req.proctorName} ({req.proctor_email || req.proctorEmail})</p>
-                    <p><span className="text-slate-500">Phone:</span> {req.proctor_phone || req.proctorPhone}</p>
-                    <p><span className="text-slate-500">Salary Range:</span> {req.salary_range || req.salaryRange}</p>
+                  <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs text-slate-700 border border-slate-200">
+                    <p><span className="text-slate-500 font-semibold">Submitted By Proctor:</span> {req.proctor_name || req.proctorName} ({req.proctor_email || req.proctorEmail})</p>
+                    <p><span className="text-slate-500 font-semibold">Phone:</span> {req.proctor_phone || req.proctorPhone}</p>
+                    <p><span className="text-slate-500 font-semibold">Salary Range:</span> {req.salary_range || req.salaryRange}</p>
                   </div>
 
-                  <p className="text-xs text-slate-400 line-clamp-3">{req.job_description || req.jobDescription}</p>
+                  <p className="text-xs text-slate-600 line-clamp-3">{req.job_description || req.jobDescription}</p>
 
                   {req.status !== 'approved' && (
                     <button
                       onClick={() => handleApproveProctor(req.id)}
-                      className="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2"
+                      className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow"
                     >
                       <Check size={16} /> Approve & Publish to Public Jobs Board
                     </button>
@@ -283,36 +277,36 @@ export default function AdminDashboardPage() {
         {/* Tab 4: Mystery Shopper Leads */}
         {activeTab === 'mystery' && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-emerald-400">Mystery Shopper Corporate Leads ({mysteryRequests.length})</h2>
+            <h2 className="text-lg font-bold text-emerald-700">Mystery Shopper Corporate Leads ({mysteryRequests.length})</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {mysteryRequests.map((lead) => (
-                <div key={lead.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl">
+                <div key={lead.id} className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-lg">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-base font-bold text-white">{lead.client_name || lead.clientName}</h3>
-                      <p className="text-xs text-emerald-400 font-semibold">{lead.role_title || lead.roleTitle} at {lead.company_name || lead.companyName}</p>
+                      <h3 className="text-base font-bold text-slate-900">{lead.client_name || lead.clientName}</h3>
+                      <p className="text-xs text-emerald-700 font-bold">{lead.role_title || lead.roleTitle} at {lead.company_name || lead.companyName}</p>
                     </div>
-                    <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-bold">
+                    <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[10px] font-bold">
                       Team: {lead.team_size || lead.teamSize} Audit Specialists
                     </span>
                   </div>
 
-                  <div className="bg-slate-950 p-3 rounded-xl space-y-1 text-xs text-slate-300">
-                    <p><span className="text-slate-500">Contact Email:</span> {lead.email}</p>
-                    <p><span className="text-slate-500">Phone / WhatsApp:</span> {lead.phone}</p>
-                    <p><span className="text-slate-500">Budget Range:</span> {lead.budget_range || lead.budgetRange}</p>
+                  <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs text-slate-700 border border-slate-200">
+                    <p><span className="text-slate-500 font-semibold">Contact Email:</span> {lead.email}</p>
+                    <p><span className="text-slate-500 font-semibold">Phone / WhatsApp:</span> {lead.phone}</p>
+                    <p><span className="text-slate-500 font-semibold">Budget Range:</span> {lead.budget_range || lead.budgetRange}</p>
                   </div>
 
                   <div>
-                    <span className="text-xs text-slate-500 font-semibold block mb-1">Project Requirements:</span>
-                    <p className="text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl">{lead.project_scope || lead.projectScope}</p>
+                    <span className="text-xs text-slate-500 font-bold block mb-1">Project Requirements:</span>
+                    <p className="text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-200">{lead.project_scope || lead.projectScope}</p>
                   </div>
 
                   <a
                     href={`https://wa.me/${lead.phone}?text=Hello%20${encodeURIComponent(lead.client_name || 'Client')},%20this%20is%20Careers%20Pro%20Serve%20regarding%20your%20Mystery%20Shopper%20Team%20request.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2"
+                    className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow"
                   >
                     <MessageSquare size={16} /> Direct WhatsApp Client
                   </a>
@@ -325,11 +319,11 @@ export default function AdminDashboardPage() {
         {/* Tab 5: Talent Pool Database */}
         {activeTab === 'talent' && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-cyan-400">Talent Pool Executive Profiles ({talentPool.length})</h2>
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <h2 className="text-lg font-bold text-blue-700">Talent Pool Executive Profiles ({talentPool.length})</h2>
+            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+                  <thead className="bg-slate-100 text-slate-700 border-b border-slate-200 font-bold">
                     <tr>
                       <th className="p-4">Candidate</th>
                       <th className="p-4">Expertise & Skills</th>
@@ -338,28 +332,28 @@ export default function AdminDashboardPage() {
                       <th className="p-4">CV Document</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800">
+                  <tbody className="divide-y divide-slate-100">
                     {talentPool.map((c) => (
-                      <tr key={c.id} className="hover:bg-slate-800/50">
-                        <td className="p-4 font-bold text-white">{c.full_name || c.fullName}</td>
+                      <tr key={c.id} className="hover:bg-slate-50">
+                        <td className="p-4 font-bold text-slate-900">{c.full_name || c.fullName}</td>
                         <td className="p-4 space-y-1">
-                          <p className="text-cyan-400 font-semibold">{c.field_of_expertise || c.fieldOfExpertise}</p>
-                          <p className="text-slate-400 text-[11px]">{c.skills}</p>
+                          <p className="text-blue-700 font-bold">{c.field_of_expertise || c.fieldOfExpertise}</p>
+                          <p className="text-slate-600 text-[11px]">{c.skills}</p>
                         </td>
-                        <td className="p-4 space-y-1 text-slate-300">
-                          <p>{c.years_of_experience || c.yearsOfExperience} Yrs Exp</p>
-                          <p className="text-slate-400 text-[11px]">{c.highest_education || c.highestEducation}</p>
+                        <td className="p-4 space-y-1 text-slate-700">
+                          <p className="font-semibold">{c.years_of_experience || c.yearsOfExperience} Yrs Exp</p>
+                          <p className="text-slate-500 text-[11px]">{c.highest_education || c.highestEducation}</p>
                         </td>
                         <td className="p-4 space-y-1">
-                          <p className="text-slate-300">{c.email}</p>
-                          <p className="text-slate-400 font-mono text-[11px]">{c.phone}</p>
+                          <p className="text-slate-700">{c.email}</p>
+                          <p className="text-slate-500 font-mono text-[11px]">{c.phone}</p>
                         </td>
                         <td className="p-4">
                           <a
                             href={c.cv_url || c.cvUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-lg font-semibold hover:bg-cyan-500/20"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg font-semibold hover:bg-blue-100"
                           >
                             <Download size={14} /> Download CV
                           </a>

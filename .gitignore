@@ -15,4 +15,11 @@ node_modules
 .DS_Store
 QUICK_START.md
 SETUP.md
-DEPLOYMENT.md       
+DEPLOYMENT.md    
+frontend/.next/
+frontend/.env
+
+backend/node_modules
+frontend/node_modules
+
+backend/.env
