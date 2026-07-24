@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import { NAV_ITEMS } from '@/lib/constants';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 
 export function Navbar() {
@@ -15,16 +15,16 @@ export function Navbar() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md shadow-sm font-serif">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="w-9 h-9 bg-gradient-to-br from-purple-800 via-indigo-800 to-slate-900 rounded-xl flex items-center justify-center text-amber-300 font-serif font-black text-xs shadow-md border border-purple-400/30">
+            <div className="w-9 h-9 bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 rounded-xl flex items-center justify-center text-amber-300 font-serif font-black text-xs shadow-md border border-purple-400/30">
               SPS
             </div>
             <span className="font-serif font-black text-slate-900 tracking-tight text-xl">
-              Sapphire <span className="text-purple-700">Pro Serve</span>
+              Sapphire <span className="text-purple-800">Pro Serve</span>
             </span>
           </Link>
 
@@ -34,10 +34,10 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-semibold transition-colors ${
+                className={`text-xs font-serif font-bold tracking-wide transition-colors ${
                   isActive(item.href)
-                    ? 'text-blue-600 font-bold border-b-2 border-blue-600 py-1'
-                    : 'text-slate-600 hover:text-blue-600'
+                    ? 'text-purple-900 font-black border-b-2 border-purple-800 py-1'
+                    : 'text-slate-600 hover:text-purple-900'
                 }`}
               >
                 {item.label}
@@ -45,26 +45,20 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Auth / Admin Buttons */}
+          {/* Right Action */}
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/portfolio"
-              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors px-3 py-1.5"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 hover:from-purple-950 hover:to-black text-white rounded-xl text-xs font-serif font-bold shadow-md transition-all border border-purple-700/30"
             >
-              About CEO
-            </Link>
-            <Link
-              href="/admin/login"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-md transition-all"
-            >
-              Admin Portal
+              <Sparkles size={13} className="text-amber-300" /> Showcase (CEO Profile)
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-slate-700 hover:text-blue-600"
+            className="md:hidden p-2 text-slate-700 hover:text-purple-900"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -77,9 +71,9 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
+                className={`block px-4 py-2.5 text-xs font-serif font-bold transition-colors ${
                   isActive(item.href)
-                    ? 'text-blue-600 font-bold bg-blue-50'
+                    ? 'text-purple-900 font-black bg-purple-50'
                     : 'text-slate-700 hover:bg-slate-50'
                 }`}
                 onClick={() => setIsOpen(false)}
@@ -87,13 +81,13 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <div className="border-t border-slate-200 mt-2 pt-3 px-4 space-y-2">
+            <div className="border-t border-slate-200 mt-2 pt-3 px-4">
               <Link
-                href="/admin/login"
-                className="block px-4 py-2 text-sm font-bold text-center bg-blue-600 text-white rounded-xl"
+                href="/portfolio"
+                className="block px-4 py-2 text-xs font-serif font-bold text-center bg-purple-900 text-white rounded-xl"
                 onClick={() => setIsOpen(false)}
               >
-                Admin Portal
+                Showcase (CEO Profile)
               </Link>
             </div>
           </div>
