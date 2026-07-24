@@ -420,39 +420,7 @@ export default function PortfolioPage() {
             </div>
           </div>
         </section>
-
-        {/* 2. PROSERVE OFFERINGS SECTION */}
-        <section className="space-y-6">
-          <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-purple-700 text-xs font-bold">
-              <Briefcase size={14} /> CONSULTANCY SERVICES
-            </div>
-            <h2 className="text-3xl font-black text-slate-900">Sapphire ProServe Consultancy Offerings</h2>
-            <p className="text-xs text-slate-500">Comprehensive suite of restaurant operations coaching & talent recruitment solutions</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {consultancyServices.map((srv, idx) => {
-              const Icon = srv.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white border border-slate-200/80 hover:border-purple-300 p-6 rounded-2xl space-y-3 transition-all hover:-translate-y-1 shadow-lg shadow-purple-950/5 group"
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="px-2.5 py-1 bg-purple-50 border border-purple-200 rounded-md text-[10px] font-extrabold text-purple-800">
-                      {srv.category}
-                    </span>
-                    <Icon size={20} className="text-purple-600 group-hover:text-emerald-600 transition-colors" />
-                  </div>
-                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-purple-700 transition-colors">{srv.title}</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">{srv.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
+        
         {/* 3. EXECUTIVE CAREER HISTORY SECTION */}
         <section className="space-y-6 max-w-4xl mx-auto">
           <div className="text-center space-y-2">
