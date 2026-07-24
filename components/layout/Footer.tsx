@@ -32,11 +32,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-black text-xs shadow-md">
-                CPS
+              <div className="w-8 h-8 bg-gradient-to-br from-purple-800 via-indigo-800 to-slate-900 rounded-xl flex items-center justify-center text-amber-300 font-serif font-black text-xs shadow-md border border-purple-400/30">
+                SPS
               </div>
-              <span className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent font-bold">
-                Careers Pro Serve
+              <span className="font-serif font-black text-slate-900 tracking-tight text-lg">
+                Sapphire <span className="text-purple-700">Pro Serve</span>
               </span>
             </Link>
             <p className="text-xs text-slate-600 leading-relaxed mb-4">

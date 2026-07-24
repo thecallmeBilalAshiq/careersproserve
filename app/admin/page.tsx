@@ -242,6 +242,11 @@ export default function AdminDashboardPage() {
                 <div key={req.id} className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-lg">
                   <div className="flex justify-between items-start">
                     <div>
+                      <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-extrabold mb-1.5 ${
+                        req.hiring_type?.includes('Team') ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-purple-100 text-purple-800 border border-purple-200'
+                      }`}>
+                        {req.hiring_type || 'Single Proctor Hiring'}
+                      </span>
                       <h3 className="text-base font-bold text-slate-900">{req.job_title || req.jobTitle}</h3>
                       <p className="text-xs text-blue-700 font-bold">{req.company_name || req.companyName} &bull; {req.location}</p>
                     </div>
@@ -253,19 +258,22 @@ export default function AdminDashboardPage() {
                   </div>
 
                   <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs text-slate-700 border border-slate-200">
-                    <p><span className="text-slate-500 font-semibold">Submitted By Proctor:</span> {req.proctor_name || req.proctorName} ({req.proctor_email || req.proctorEmail})</p>
+                    <p><span className="text-slate-500 font-semibold">Submitted By:</span> {req.proctor_name || req.proctorName} ({req.proctor_email || req.proctorEmail})</p>
                     <p><span className="text-slate-500 font-semibold">Phone:</span> {req.proctor_phone || req.proctorPhone}</p>
-                    <p><span className="text-slate-500 font-semibold">Salary Range:</span> {req.salary_range || req.salaryRange}</p>
+                    <p><span className="text-slate-500 font-semibold">Compensation / Budget:</span> {req.salary_expectation || req.salary_range || req.salaryRange}</p>
                   </div>
 
-                  <p className="text-xs text-slate-600 line-clamp-3">{req.job_description || req.jobDescription}</p>
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="text-[11px] font-bold text-slate-500 block mb-1">Details & Scope:</span>
+                    <pre className="text-xs text-slate-700 whitespace-pre-wrap font-sans leading-relaxed max-h-48 overflow-y-auto">{req.job_description || req.jobDescription}</pre>
+                  </div>
 
                   {req.status !== 'approved' && (
                     <button
                       onClick={() => handleApproveProctor(req.id)}
-                      className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow"
+                      className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow text-xs"
                     >
-                      <Check size={16} /> Approve & Publish to Public Jobs Board
+                      <Check size={16} /> Approve & Publish Request
                     </button>
                   )}
                 </div>

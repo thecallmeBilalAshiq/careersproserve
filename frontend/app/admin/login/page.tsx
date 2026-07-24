@@ -67,11 +67,11 @@ export default function AdminLogin() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-lg mx-auto mb-4 flex items-center justify-center">
-            <Lock size={32} className="text-foreground" />
+          <div className="w-16 h-16 bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg border border-purple-200">
+            <Lock size={28} className="text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Sapphire Admin</h1>
-          <p className="text-muted-foreground">Secure Management Portal</p>
+          <h1 className="text-3xl font-serif font-black text-slate-900 mb-1">Sapphire Pro Serve Admin</h1>
+          <p className="text-sm font-serif text-slate-600">Executive Portal Management</p>
         </div>
 
         {/* Login Card */}

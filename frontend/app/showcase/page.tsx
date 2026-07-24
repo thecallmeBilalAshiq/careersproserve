@@ -1,5 +1,5 @@
 import PortfolioPage from '../portfolio/page';
 
-export default function SapphirePage() {
+export default function ShowcasePage() {
   return <PortfolioPage />;
 }
