@@ -34,11 +34,11 @@ export function Footer() {
               <div className="w-8 h-8 bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 rounded-xl flex items-center justify-center text-amber-300 font-serif font-black text-xs shadow-md border border-purple-400/30">
                 SPS
               </div>
-              <span className="font-serif font-black text-slate-900 tracking-tight text-lg">
-                Sapphire <span className="text-purple-800">Pro Serve</span>
+              <span className="font-serif font-black text-slate-900 tracking-tight text-xl">
+                Sapphire <span className="text-purple-800 font-bold">ProServe</span>
               </span>
             </Link>
-            <p className="text-xs text-slate-600 leading-relaxed mb-4 font-serif">
+            <p className="text-sm text-slate-600 leading-relaxed mb-4 font-serif">
               Premium corporate platform connecting executive candidates with high-impact jobs, professional training, certified proctors, and mystery shopper audits.
             </p>
           </div>

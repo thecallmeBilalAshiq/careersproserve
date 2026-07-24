@@ -72,8 +72,8 @@ export default function AdminLogin() {
           <div className="w-16 h-16 bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-xl border border-purple-200">
             <Lock size={28} className="text-white" />
           </div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-100 border border-purple-200 rounded-full text-purple-900 text-xs font-bold mb-3">
-            <Sparkles size={12} className="text-amber-600 animate-spin" /> SAPPHIRE PRO SERVE
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-purple-100 border border-purple-200 rounded-full text-purple-900 text-sm font-bold mb-3">
+            <Sparkles size={14} className="text-amber-600 animate-spin" /> SAPPHIRE PROSERVE
           </div>
           <h1 className="text-3xl font-serif font-black text-slate-900 mb-1">Admin Portal Login</h1>
           <p className="text-sm font-serif text-slate-600">Executive Management Dashboard</p>
@@ -97,6 +97,7 @@ export default function AdminLogin() {
                   placeholder="admin@sapphire.career"
                   className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-serif text-slate-900 focus:outline-none focus:border-purple-600 transition-all"
                   required
+                  suppressHydrationWarning
                 />
               </div>
             </div>
@@ -116,6 +117,7 @@ export default function AdminLogin() {
                   placeholder="••••••••"
                   className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-serif text-slate-900 focus:outline-none focus:border-purple-600 transition-all"
                   required
+                  suppressHydrationWarning
                 />
               </div>
             </div>
@@ -157,7 +159,7 @@ export default function AdminLogin() {
         {/* Footer Links */}
         <div className="mt-6 text-center text-xs font-serif text-slate-600">
           <Link href="/" className="text-purple-800 font-bold hover:underline">
-            &larr; Back to Sapphire Pro Serve Home
+            &larr; Back to Sapphire ProServe Home
           </Link>
         </div>
       </div>

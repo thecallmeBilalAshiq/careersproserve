@@ -128,7 +128,7 @@ export default function TrainingDetailPage({ params }: { params: Promise<{ id: s
                   </li>
                   <li className="flex gap-2">
                     <span className="text-purple-600 font-bold">•</span>
-                    <span>Issued with Careers Pro Serve Verification & Certificate</span>
+                    <span>Issued with Sapphire ProServe Verification & Certificate</span>
                   </li>
                 </ul>
               </div>

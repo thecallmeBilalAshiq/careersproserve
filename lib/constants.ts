@@ -10,13 +10,13 @@ export const NAV_ITEMS = [
 ];
 
 export const COMPANY_DETAILS = {
-  name: 'Sapphire Pro Serve',
+  name: 'Sapphire ProServe',
   email: 'careersproserve@gmail.com',
   phone: '+923216714725',
   whatsapp: '923216714725',
   whatsappDisplay: '+92 321 6714725',
   bankName: 'Meezan Bank',
-  accountTitle: 'Sapphire Pro Serve',
+  accountTitle: 'Sapphire ProServe',
   accountNumber: 'PK92MEZN00010982347101',
 };
 

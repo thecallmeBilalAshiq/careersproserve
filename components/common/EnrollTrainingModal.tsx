@@ -93,10 +93,10 @@ export function EnrollTrainingModal({ trainingId, trainingTitle, isOpen, onClose
       // 2. Dispatch Email Notification
       await sendNotificationEmail({
         to: formData.clientEmail,
-        subject: `Training Registration Received: ${trainingTitle} - Sapphire Pro Serve`,
+        subject: `Training Registration Received: ${trainingTitle} - Sapphire ProServe`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #ffffff;">
-            <h2 style="color: #7c3aed; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire Pro Serve Training</h2>
+            <h2 style="color: #7c3aed; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire ProServe Training</h2>
             <p style="text-align: center; color: #047857; font-style: italic; background: #ecfdf5; padding: 8px; border-radius: 4px; font-weight: bold;">
               "Driven by Passion, Powered by People, Focused on Customer"
             </p>
@@ -106,7 +106,7 @@ export function EnrollTrainingModal({ trainingId, trainingTitle, isOpen, onClose
             ${formData.trainingCategory === 'Team' ? `<p style="color: #334155;"><strong>Team Size:</strong> ${formData.teamSize} Candidates</p>` : ''}
             <p style="color: #334155;">Our training consultant will contact you via phone or email to schedule your orientation.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `,
       });
@@ -121,7 +121,7 @@ export function EnrollTrainingModal({ trainingId, trainingTitle, isOpen, onClose
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Sapphire Pro Serve, I registered for ${formData.trainingCategory} Training (${formData.selectedTopics.join(', ')}). Name: ${formData.clientName}`
+    `Hello Sapphire ProServe, I registered for ${formData.trainingCategory} Training (${formData.selectedTopics.join(', ')}). Name: ${formData.clientName}`
   );
 
   return (

@@ -155,7 +155,7 @@ ${teamForm.teamDescription}`;
       const emailHtml = isSingle
         ? `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff;">
-            <h2 style="color: #6d28d9; margin-top: 0; text-align: center;">Sapphire Pro Serve - Single Proctor Hiring Request</h2>
+            <h2 style="color: #6d28d9; margin-top: 0; text-align: center;">Sapphire ProServe - Single Proctor Hiring Request</h2>
             <p>Hello <strong>${contactInfo.proctorName}</strong>,</p>
             <p>Thank you for submitting a single proctor hiring requirement. Below are your request details:</p>
             <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 16px 0; border: 1px solid #cbd5e1;">
@@ -167,12 +167,12 @@ ${teamForm.teamDescription}`;
             </div>
             <p>Our Admin team is reviewing your posting. You will be notified once it is approved and listed.</p>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b; text-align: center;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b; text-align: center;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `
         : `
           <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff;">
-            <h2 style="color: #047857; margin-top: 0; text-align: center;">Sapphire Pro Serve - Team Hiring Request</h2>
+            <h2 style="color: #047857; margin-top: 0; text-align: center;">Sapphire ProServe - Team Hiring Request</h2>
             <p>Hello <strong>${contactInfo.proctorName}</strong>,</p>
             <p>We received your Team Hiring & Proctor Squad Outsourcing request for <strong>${contactInfo.companyName}</strong>.</p>
             <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; margin: 16px 0; border: 1px solid #bbf7d0;">
@@ -193,7 +193,7 @@ ${teamForm.teamDescription}`;
             </ul>
             <p>Our executive recruitment team will review your team requirements and reach out to confirm candidate matching.</p>
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b; text-align: center;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b; text-align: center;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `;
 

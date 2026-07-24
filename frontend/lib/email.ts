@@ -1,5 +1,5 @@
 /**
- * Email Dispatch Utility for Careers Pro Serve
+ * Email Dispatch Utility for Sapphire ProServe
  * Configured to send email notifications from careersproserve@gmail.com
  */
 

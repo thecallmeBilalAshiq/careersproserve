@@ -69,15 +69,15 @@ export default function TalentPoolPage() {
       // 3. Email Notification
       await sendNotificationEmail({
         to: formData.email,
-        subject: 'Welcome to Sapphire Pro Serve Talent Pool',
+        subject: 'Welcome to Sapphire ProServe Talent Pool',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #ffffff;">
-            <h2 style="color: #2563eb; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire Pro Serve</h2>
+            <h2 style="color: #2563eb; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire ProServe</h2>
             <h3 style="color: #0f172a;">Welcome ${formData.fullName}!</h3>
             <p style="color: #334155;">Your profile and CV have been added to our executive candidate database.</p>
             <p style="color: #334155;">When matching job opportunities arise, our recruiters will contact you directly.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `,
       });
@@ -117,7 +117,7 @@ export default function TalentPoolPage() {
           </motion.h1>
 
           <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-serif">
-            Join Sapphire Pro Serve&apos;s executive talent database. Our corporate headhunters review candidate credentials daily for unlisted leadership and specialist roles.
+            Join Sapphire ProServe&apos;s executive talent database. Our corporate headhunters review candidate credentials daily for unlisted leadership and specialist roles.
           </p>
         </div>
       </section>

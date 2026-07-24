@@ -53,16 +53,16 @@ export default function MysteryShopperPage() {
       // 2. Dispatch Email
       await sendNotificationEmail({
         to: formData.email,
-        subject: `Mystery Shopper Team Request Logged - Sapphire Pro Serve`,
+        subject: `Mystery Shopper Team Request Logged - Sapphire ProServe`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #ffffff;">
-            <h2 style="color: #059669; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire Pro Serve Executive Audits</h2>
+            <h2 style="color: #059669; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire ProServe Executive Audits</h2>
             <h3 style="color: #0f172a;">Dear ${formData.clientName},</h3>
             <p style="color: #334155;">Thank you for submitting your Mystery Shopper evaluation request for <strong>${formData.companyName}</strong>.</p>
             <p style="color: #334155;"><strong>Audit Scope:</strong> ${formData.visitTier} (${formData.teamSize})</p>
             <p style="color: #334155;">Our executive director will call you at <strong>${formData.phone}</strong> to confirm schedule and branch locations.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `,
       });

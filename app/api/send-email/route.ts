@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       });
 
       const info = await transporter.sendMail({
-        from: `Careers Pro Serve <${emailUser}>`,
+        from: `Sapphire ProServe <${emailUser}>`,
         to,
         subject,
         html,

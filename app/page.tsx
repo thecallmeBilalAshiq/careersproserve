@@ -45,13 +45,13 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/90 border border-purple-200/90 rounded-full text-purple-900 text-xs font-serif font-bold shadow-md backdrop-blur-md"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/90 border border-purple-200/90 rounded-full text-purple-900 text-sm font-serif font-bold shadow-md backdrop-blur-md"
           >
-            <Sparkles size={14} className="text-amber-600 animate-spin" />
+            <Sparkles size={16} className="text-amber-600 animate-spin" />
             <span className="tracking-wide">
-              SAPPHIRE PRO SERVE &bull; WORLD-CLASS EXECUTIVE & AUDIT ECOSYSTEM
+              SAPPHIRE PROSERVE &bull; WORLD-CLASS EXECUTIVE & AUDIT ECOSYSTEM
             </span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
           </motion.div>
 
           {/* Times New Roman Style Headline */}
@@ -74,7 +74,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal"
           >
-            Sapphire Pro Serve delivers Fortune 500 level operations coaching, executive talent headhunting, certified proctor outsourcing, and mystery shopper auditing—with zero friction.
+            Sapphire ProServe delivers Fortune 500 level operations coaching, executive talent headhunting, certified proctor outsourcing, and mystery shopper auditing—with zero friction.
           </motion.p>
 
           {/* Executive Call to Actions */}
@@ -127,7 +127,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-4 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-bold text-slate-900">Live Corporate Status:</span> Sapphire Pro Serve Operational
+            <span className="font-bold text-slate-900">Live Corporate Status:</span> Sapphire ProServe Operational
           </div>
           <div className="flex flex-wrap items-center gap-6 font-mono text-slate-500">
             <span>Official Email: <strong className="text-purple-700">{COMPANY_DETAILS.email}</strong></span>
@@ -136,120 +136,103 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core 6 Executive Service Modules */}
+      {/* Core 5 Executive Service Modules */}
       <section className="py-20 px-4 max-w-7xl mx-auto w-full space-y-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <span className="px-3.5 py-1.5 bg-purple-100 border border-purple-200 rounded-full text-purple-800 text-xs font-extrabold uppercase tracking-widest">
             Executive Solutions
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif font-black text-slate-900">
-            6 Core Modules Designed For Sapphire Pro Serve
+            5 Core Services Offered By Sapphire ProServe
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
-            From candidate job applications to proctor outsourcing, team trainings, and mystery audits—Sapphire Pro Serve guarantees excellence.
+            From candidate job applications to proctor outsourcing, team trainings, mystery audits, and executive talent recruitment—Sapphire ProServe guarantees excellence.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1: Jobs & CV */}
-          <div className="group bg-white border border-slate-200 hover:border-purple-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-purple-50 border border-purple-200 rounded-2xl flex items-center justify-center text-purple-700 mb-6 group-hover:scale-110 transition-transform">
-              <Briefcase size={28} />
+          <div className="group bg-white border border-slate-200 hover:border-purple-400 rounded-2xl p-7 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl relative overflow-hidden">
+            <div className="w-12 h-12 bg-purple-50 border border-purple-200 rounded-xl flex items-center justify-center text-purple-700 mb-5 group-hover:scale-105 transition-transform">
+              <Briefcase size={24} />
             </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">1. Guest Job Applications</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Browse curated jobs across QSR, IT, Healthcare, Engineering & Finance. Upload CV resumes directly without registering an account.
+            <h3 className="text-lg font-serif font-bold text-slate-900 mb-2">1. Guest Job Applications</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              Browse curated opportunities across QSR, IT, Healthcare & Finance. Upload CV resumes directly without account registration.
             </p>
             <Link
               href="/jobs"
-              className="inline-flex items-center gap-2 text-xs font-bold text-purple-700 hover:text-purple-800 group-hover:translate-x-1 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-800 group-hover:translate-x-1 transition-all"
             >
-              Browse Jobs & Apply <ChevronRight size={16} />
+              Browse Jobs & Apply <ChevronRight size={15} />
             </Link>
           </div>
 
           {/* Card 2: Training */}
-          <div className="group bg-white border border-slate-200 hover:border-indigo-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-indigo-50 border border-indigo-200 rounded-2xl flex items-center justify-center text-indigo-700 mb-6 group-hover:scale-110 transition-transform">
-              <BookOpen size={28} />
+          <div className="group bg-white border border-slate-200 hover:border-indigo-400 rounded-2xl p-7 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl relative overflow-hidden">
+            <div className="w-12 h-12 bg-indigo-50 border border-indigo-200 rounded-xl flex items-center justify-center text-indigo-700 mb-5 group-hover:scale-105 transition-transform">
+              <BookOpen size={24} />
             </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">2. Corporate Staff Training</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Enroll in specialized restaurant & service etiquette certifications designed by Sapphire Loyal (CHRP).
+            <h3 className="text-lg font-serif font-bold text-slate-900 mb-2">2. Corporate Staff Training</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              Enroll in specialized restaurant, hospitality & service etiquette certifications designed by Sapphire Loyal (CHRP).
             </p>
             <Link
               href="/training"
-              className="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 hover:text-indigo-800 group-hover:translate-x-1 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 group-hover:translate-x-1 transition-all"
             >
-              Explore Courses <ChevronRight size={16} />
+              Explore Courses <ChevronRight size={15} />
             </Link>
           </div>
 
           {/* Card 3: Proctor Submissions */}
-          <div className="group bg-white border border-slate-200 hover:border-emerald-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-center text-emerald-700 mb-6 group-hover:scale-110 transition-transform">
-              <ShieldCheck size={28} />
+          <div className="group bg-white border border-slate-200 hover:border-emerald-400 rounded-2xl p-7 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl relative overflow-hidden">
+            <div className="w-12 h-12 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-center text-emerald-700 mb-5 group-hover:scale-105 transition-transform">
+              <ShieldCheck size={24} />
             </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">3. Proctor Hiring & Outsourcing</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Single and Team Hiring for examination and event proctoring with customized roles, specifications, and instant approval.
+            <h3 className="text-lg font-serif font-bold text-slate-900 mb-2">3. Proctor Hiring & Outsourcing</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              Single & Team Hiring for examination and event proctoring with customized roles, specifications, and instant dispatch.
             </p>
             <Link
               href="/proctors/submit-job"
-              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 hover:text-emerald-800 group-hover:translate-x-1 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 group-hover:translate-x-1 transition-all"
             >
-              Submit Proctor Requirement <ChevronRight size={16} />
+              Submit Proctor Requirement <ChevronRight size={15} />
             </Link>
           </div>
 
           {/* Card 4: Mystery Shoppers */}
-          <div className="group bg-white border border-slate-200 hover:border-amber-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center text-amber-700 mb-6 group-hover:scale-110 transition-transform">
-              <Eye size={28} />
+          <div className="group bg-white border border-slate-200 hover:border-amber-400 rounded-2xl p-7 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl relative overflow-hidden">
+            <div className="w-12 h-12 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center text-amber-700 mb-5 group-hover:scale-105 transition-transform">
+              <Eye size={24} />
             </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">4. Mystery Shopper Audits</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Deploy certified evaluation squads across 3-5, 5-7, 7-10, or 15-20 outstation audit visits for QA compliance.
+            <h3 className="text-lg font-serif font-bold text-slate-900 mb-2">4. Mystery Shopper Audits</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              Deploy certified evaluation squads across 3-5, 5-7, 7-10, or 15-20 outstation audit visits for QA & cashier compliance.
             </p>
             <Link
               href="/mystery-shopper"
-              className="inline-flex items-center gap-2 text-xs font-bold text-amber-700 hover:text-amber-800 group-hover:translate-x-1 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 group-hover:translate-x-1 transition-all"
             >
-              Request Mystery Audit Squad <ChevronRight size={16} />
+              Request Mystery Audit Squad <ChevronRight size={15} />
             </Link>
           </div>
 
           {/* Card 5: Talent Pool */}
-          <div className="group bg-white border border-slate-200 hover:border-purple-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-purple-50 border border-purple-200 rounded-2xl flex items-center justify-center text-purple-700 mb-6 group-hover:scale-110 transition-transform">
-              <UserCheck size={28} />
+          <div className="group bg-white border border-slate-200 hover:border-purple-400 rounded-2xl p-7 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl relative overflow-hidden">
+            <div className="w-12 h-12 bg-purple-50 border border-purple-200 rounded-xl flex items-center justify-center text-purple-700 mb-5 group-hover:scale-105 transition-transform">
+              <UserCheck size={24} />
             </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">5. Executive Talent Vault</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Register your candidate CV for long-term database storage. Corporate clients query our pool for executive recruitment.
+            <h3 className="text-lg font-serif font-bold text-slate-900 mb-2">5. Executive Talent Vault</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-5">
+              Register candidate profiles for long-term database placement. Corporate clients query our pool for leadership recruitment.
             </p>
             <Link
               href="/talent-pool"
-              className="inline-flex items-center gap-2 text-xs font-bold text-purple-700 hover:text-purple-800 group-hover:translate-x-1 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-800 group-hover:translate-x-1 transition-all"
             >
-              Join Talent Vault <ChevronRight size={16} />
-            </Link>
-          </div>
-
-          {/* Card 6: Admin Dashboard */}
-          <div className="group bg-white border border-slate-200 hover:border-rose-400 rounded-2xl p-8 transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 bg-rose-50 border border-rose-200 rounded-2xl flex items-center justify-center text-rose-700 mb-6 group-hover:scale-110 transition-transform">
-              <Lock size={28} />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">6. Master Admin Portal</h3>
-            <p className="text-xs text-slate-600 leading-relaxed mb-6">
-              Unified administrative control panel to manage applications, verify candidates, approve proctor jobs, and review mystery shopper leads.
-            </p>
-            <Link
-              href="/admin"
-              className="inline-flex items-center gap-2 text-xs font-bold text-rose-700 hover:text-rose-800 group-hover:translate-x-1 transition-all"
-            >
-              Open Admin Portal <ChevronRight size={16} />
+              Join Talent Vault <ChevronRight size={15} />
             </Link>
           </div>
         </div>
@@ -349,7 +332,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-sm font-serif font-bold text-slate-900">Executive Audit Overview</h4>
-                    <p className="text-xs text-slate-500">Sapphire Pro Serve Operations</p>
+                    <p className="text-xs text-slate-500">Sapphire ProServe Operations</p>
                   </div>
                 </div>
                 <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full">

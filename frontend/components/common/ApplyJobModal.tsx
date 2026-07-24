@@ -68,16 +68,16 @@ export function ApplyJobModal({ jobId, jobTitle, company, isOpen, onClose }: App
       // 3. Send Notification Email from careersproserve@gmail.com
       await sendNotificationEmail({
         to: formData.email,
-        subject: `Application Received: ${jobTitle} - Sapphire Pro Serve`,
+        subject: `Application Received: ${jobTitle} - Sapphire ProServe`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #ffffff;">
-            <h2 style="color: #2563eb; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire Pro Serve</h2>
+            <h2 style="color: #2563eb; background: #f8fafc; padding: 15px; border-radius: 6px; text-align: center;">Sapphire ProServe</h2>
             <h3 style="color: #0f172a;">Dear ${formData.fullName},</h3>
             <p style="color: #334155;">Thank you for applying for the position of <strong>${jobTitle}</strong> at <strong>${company}</strong>.</p>
             <p style="color: #334155;"><strong>Expected Salary:</strong> ${formData.expectedSalary || 'Not specified'}</p>
             <p style="color: #334155;">Your application and CV have been safely received in our candidate database. Our hiring team will review your qualifications and reach out to you shortly.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="font-size: 12px; color: #64748b;">Sapphire Pro Serve &bull; careersproserve@gmail.com &bull; +923216714725</p>
+            <p style="font-size: 12px; color: #64748b;">Sapphire ProServe &bull; careersproserve@gmail.com &bull; +923216714725</p>
           </div>
         `,
       });

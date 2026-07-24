@@ -211,9 +211,9 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             {/* Left Column: Hero Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-purple-50 border border-purple-200 rounded-full text-purple-800 text-xs font-serif font-bold shadow-sm">
-                <Sparkles size={14} className="text-purple-600 animate-spin" />
-                CEO & FOUNDER &bull; SAPPHIRE PRO SERVE
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-purple-50 border border-purple-200 rounded-full text-purple-900 text-sm font-serif font-bold shadow-sm">
+                <Sparkles size={16} className="text-purple-600 animate-spin" />
+                CEO & FOUNDER &bull; SAPPHIRE PROSERVE
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-black text-slate-900 tracking-tight leading-[1.1]">

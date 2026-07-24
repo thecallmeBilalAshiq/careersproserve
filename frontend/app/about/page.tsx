@@ -12,28 +12,28 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="py-24 px-4 bg-gradient-to-b from-purple-100/40 via-white to-slate-50 border-b border-slate-200/80 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-purple-50 border border-purple-200 rounded-full text-purple-900 text-xs font-serif font-bold shadow-sm">
-            <Sparkles size={14} className="text-amber-600 animate-spin" /> Official Corporate Portal
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-900 text-sm font-serif font-bold shadow-sm">
+            <Sparkles size={16} className="text-amber-600 animate-spin" /> Official Corporate Portal
           </div>
           <h1 className="text-4xl md:text-6xl font-serif font-black text-slate-900 tracking-tight">
-            Sapphire <span className="bg-gradient-to-r from-purple-900 via-indigo-800 to-slate-900 bg-clip-text text-transparent italic font-serif">Pro Serve</span>
+            Sapphire <span className="bg-gradient-to-r from-purple-900 via-indigo-800 to-slate-900 bg-clip-text text-transparent italic font-serif">ProServe</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-serif">
             Empowering professionals, connecting certified proctors, training ambitious talent, and delivering corporate audit solutions.
           </p>
 
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <a
-              href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=Hello%20Sapphire%20Pro%20Serve`}
+              href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=Hello%20Sapphire%20ProServe`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg transition-all flex items-center gap-2 text-sm"
+              className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-serif font-bold rounded-xl shadow-lg transition-all flex items-center gap-2 text-sm"
             >
               <MessageSquare size={18} /> WhatsApp Contact ({COMPANY_DETAILS.whatsappDisplay})
             </a>
             <a
               href={`mailto:${COMPANY_DETAILS.email}`}
-              className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl border border-slate-300 transition-all flex items-center gap-2 text-sm"
+              className="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-serif font-bold rounded-xl border border-slate-300 transition-all flex items-center gap-2 text-sm"
             >
               <Mail size={18} /> {COMPANY_DETAILS.email}
             </a>
@@ -49,7 +49,7 @@ export default function AboutPage() {
               <Target size={28} />
             </div>
             <h3 className="text-xl font-serif font-bold text-slate-900">Our Mission</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed font-serif">
               To provide zero-barrier career advancement for candidates, proctors, and organizations with immediate automated recruitment workflows.
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center bg-white border border-slate-200 rounded-3xl p-10 space-y-6 shadow-xl">
-          <h2 className="text-3xl font-serif font-black text-slate-900">Ready to Connect With Sapphire Pro Serve?</h2>
+          <h2 className="text-3xl font-serif font-black text-slate-900">Ready to Connect With Sapphire ProServe?</h2>
           <p className="text-sm text-slate-600 max-w-lg mx-auto">Explore open jobs without logging in, apply for training certifications, or submit your profile to our talent pool.</p>
           
           <div className="flex flex-wrap justify-center gap-4">
